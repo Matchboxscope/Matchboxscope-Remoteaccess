@@ -4,7 +4,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const url = require('url');
 
-const port = 3000;
+const port = 80;
 
 const express_config= require('./config/express.js');
 
@@ -34,6 +34,6 @@ app.get('/', (req, res) => {
 
 
 server.listen(port, () => {
-	  console.log(`App listening at http://localhost:${port}`)
+	  console.log(`App listening at http://0.0.0.0:${port}`)
 })
 
