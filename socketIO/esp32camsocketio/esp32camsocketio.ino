@@ -1,4 +1,3 @@
-
 #include "WiFi.h"
 #include "esp_camera.h"
 
@@ -29,8 +28,8 @@
 
 // Replace with your network credentials
 const char* hostname = "ESP32CAM";
-const char* ssid = "ssid";
-const char* password = "password";
+const char* ssid = "BenMur";
+const char* password = "MurBen3128";
 
 
 SocketIOclientMod socketIO;
@@ -103,6 +102,10 @@ void setupCamera()
   
 }
 
+int server_port = 3000;
+
+
+
 void setup(){
   Serial.begin(115200);
   
@@ -118,8 +121,8 @@ void setup(){
 
   setupCamera();
   
-  // server address, port and URL
-  socketIO.begin("ip_address", server_port, "/socket.io/?EIO=4");
+  // server address, port and URL //192.168.2.191:3000/socket.io/?EIO=4
+  socketIO.begin("192.168.2.191", server_port, "/socket.io/?EIO=4");
   
   // event handler
   socketIO.onEvent(socketIOEvent);
